@@ -83,4 +83,24 @@ function App() {
               Видите % совпадения ваших навыков с требованиями вакансии
             </p>
           </div>
-          <d
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="text-4xl mb-3">⚙️</div>
+            <h3 className="font-semibold mb-2">Гибкая настройка</h3>
+            <p className="text-sm text-gray-600">
+              Меняйте минимальный процент совпадения под ваши цели
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="text-4xl mb-3">📊</div>
+            <h3 className="font-semibold mb-2">Детальный анализ</h3>
+            <p className="text-sm text-gray-600">
+              Узнайте какие навыки вам нужно развить
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default App
