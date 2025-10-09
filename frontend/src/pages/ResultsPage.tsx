@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { mockJobs } from '../data/mockJobs';
-import type { Job } from '../data/mockJobs'; 
+//import type { Job } from '../data/mockJobs'; 
 import JobCard from '../components/JobCard';
 
 export default function ResultsPage() {

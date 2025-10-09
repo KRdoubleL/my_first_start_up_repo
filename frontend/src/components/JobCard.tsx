@@ -5,11 +5,11 @@ interface JobCardProps {
 }
 
 export default function JobCard({ job }: JobCardProps) {
-  const matchColor = 
-    job.matchPercentage >= 80 ? 'bg-green-100 text-green-800 border-green-300' :
-    job.matchPercentage >= 60 ? 'bg-blue-100 text-blue-800 border-blue-300' :
-    job.matchPercentage >= 40 ? 'bg-yellow-100 text-yellow-800 border-yellow-300' :
-    'bg-gray-100 text-gray-800 border-gray-300';
+  cconst matchColor = 
+  (job.matchPercentage ?? 0) >= 80 ? 'bg-green-100 text-green-800 border-green-300' :
+  (job.matchPercentage ?? 0) >= 60 ? 'bg-blue-100 text-blue-800 border-blue-300' :
+  (job.matchPercentage ?? 0) >= 40 ? 'bg-yellow-100 text-yellow-800 border-yellow-300' :
+  'bg-gray-100 text-gray-800 border-gray-300';
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-200">
