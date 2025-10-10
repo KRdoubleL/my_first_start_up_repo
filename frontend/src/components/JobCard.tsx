@@ -1,4 +1,5 @@
 import type { Job } from '../data/mockJobs';
+import { Link } from 'react-router-dom';
 
 interface JobCardProps {
   job: Job;
@@ -6,10 +7,10 @@ interface JobCardProps {
 
 export default function JobCard({ job }: JobCardProps) {
   const matchColor = 
-  (job.matchPercentage ?? 0) >= 80 ? 'bg-green-100 text-green-800 border-green-300' :
-  (job.matchPercentage ?? 0) >= 60 ? 'bg-blue-100 text-blue-800 border-blue-300' :
-  (job.matchPercentage ?? 0) >= 40 ? 'bg-yellow-100 text-yellow-800 border-yellow-300' :
-  'bg-gray-100 text-gray-800 border-gray-300';
+    (job.matchPercentage ?? 0) >= 80 ? 'bg-green-100 text-green-800 border-green-300' :
+    (job.matchPercentage ?? 0) >= 60 ? 'bg-blue-100 text-blue-800 border-blue-300' :
+    (job.matchPercentage ?? 0) >= 40 ? 'bg-yellow-100 text-yellow-800 border-yellow-300' :
+    'bg-gray-100 text-gray-800 border-gray-300';
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-200">
@@ -57,9 +58,12 @@ export default function JobCard({ job }: JobCardProps) {
       </div>
 
       {/* Action Button */}
-      <button className="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-semibold transition-colors">
+      <Link
+        to={`/job/${job.id}`}
+        className="block w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-semibold transition-colors text-center"
+      >
         View Details
-      </button>
+      </Link>
     </div>
   );
 }

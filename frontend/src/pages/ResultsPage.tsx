@@ -1,7 +1,6 @@
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { mockJobs } from '../data/mockJobs';
-//import type { Job } from '../data/mockJobs'; 
 import JobCard from '../components/JobCard';
 
 export default function ResultsPage() {
@@ -9,6 +8,13 @@ export default function ResultsPage() {
   const navigate = useNavigate();
   const userSkills = location.state?.skills as string[] || [];
   const [minMatchPercentage, setMinMatchPercentage] = useState(0);
+
+  // Сохраняем навыки в sessionStorage для доступа на странице деталей
+  useEffect(() => {
+    if (userSkills.length > 0) {
+      sessionStorage.setItem('userSkills', JSON.stringify(userSkills));
+    }
+  }, [userSkills]);
 
   // Если нет навыков - редирект на главную
   if (userSkills.length === 0) {
