@@ -27,22 +27,21 @@ export default function JobDetailPage() {
   }
   
   // Вычисляем совпадения навыков
-  const skillsAnalysis = useMemo(() => {
-    const normalizedUserSkills = userSkills.map(s => s.toLowerCase());
-    const normalizedJobSkills = job.requiredSkills.map(s => s.toLowerCase());
-    
-    const matching = job.requiredSkills.filter(skill =>
-      normalizedUserSkills.includes(skill.toLowerCase())
-    );
-    
-    const missing = job.requiredSkills.filter(skill =>
-      !normalizedUserSkills.includes(skill.toLowerCase())
-    );
-    
-    const matchPercentage = Math.round((matching.length / job.requiredSkills.length) * 100);
-    
-    return { matching, missing, matchPercentage };
-  }, [job, userSkills]);
+const skillsAnalysis = useMemo(() => {
+  const normalizedUserSkills = userSkills.map(s => s.toLowerCase());
+  
+  const matching = job.requiredSkills.filter(skill =>
+    normalizedUserSkills.includes(skill.toLowerCase())
+  );
+  
+  const missing = job.requiredSkills.filter(skill =>
+    !normalizedUserSkills.includes(skill.toLowerCase())
+  );
+  
+  const matchPercentage = Math.round((matching.length / job.requiredSkills.length) * 100);
+  
+  return { matching, missing, matchPercentage };
+}, [job, userSkills]);
   
   const matchColor = 
     skillsAnalysis.matchPercentage >= 80 ? 'text-green-600 bg-green-50 border-green-300' :
