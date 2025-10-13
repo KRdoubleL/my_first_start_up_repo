@@ -28,5 +28,12 @@ class User(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
+    # Relationships для карьеры
+    skills_detailed = relationship("UserSkill", back_populates="user", cascade="all, delete-orphan")
+    experience_detailed = relationship("UserExperience", back_populates="user", cascade="all, delete-orphan")
+    career_profile = relationship("UserCareerProfile", back_populates="user", uselist=False, cascade="all, delete-orphan")
+    career_paths = relationship("CareerPath", back_populates="user", cascade="all, delete-orphan")
+    job_matches = relationship("JobMatchResult", back_populates="user", cascade="all, delete-orphan")
+
     # Relationships
     saved_jobs = relationship("SavedJob", back_populates="user", cascade="all, delete-orphan")
