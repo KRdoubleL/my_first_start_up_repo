@@ -4,6 +4,7 @@ from app.core.config import settings
 from app.db.database import engine, Base
 from app.api import auth, users, jobs
 from app.routes import career
+from fastapi.middleware.cors import CORSMiddleware
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -17,7 +18,10 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL, "http://localhost:3000"],
+    allow_origins=[
+        "https://my-first-start-up-repo.vercel.app/",  # your actual frontend domain
+        "http://localhost:5173",           # for local dev
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
