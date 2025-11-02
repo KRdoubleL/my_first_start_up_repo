@@ -9,3 +9,10 @@ from app.models.career import (
     SkillLevelEnum,
     CareerLevelEnum,
 )
+from app.models.assessment import (
+    AssessmentQuestion,
+    AssessmentResult,
+    UserProgress,
+    AssessmentTypeEnum,
+    DifficultyEnum,
+)

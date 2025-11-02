@@ -6,6 +6,7 @@ import JobDetailPage from './pages/JobDetailPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
+import AssessmentPage from './pages/AssessmentPage';
 
 // Protected Route wrapper
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -88,6 +89,14 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <JobDetailPage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/assessment" 
+        element={
+          <ProtectedRoute>
+            <AssessmentPage />
           </ProtectedRoute>
         } 
       />

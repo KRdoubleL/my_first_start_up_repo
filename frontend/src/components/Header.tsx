@@ -50,6 +50,17 @@ export default function Header() {
             🏠 Home
           </Link>
 
+          <Link to="/assessment" style={{
+            color: 'white',
+            textDecoration: 'none',
+            fontSize: '1rem',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
+          onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>
+            🎯 Assessment
+          </Link>
+
           <Link to="/profile" style={{
             color: 'white',
             textDecoration: 'none',

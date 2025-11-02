@@ -4,6 +4,7 @@ from app.core.config import settings
 from app.db.database import engine, Base
 from app.api import auth, users, jobs
 from app.routes import career
+from app.routes import assessment
 from fastapi.middleware.cors import CORSMiddleware
 
 # Create database tables
@@ -32,6 +33,7 @@ app.include_router(auth.router, prefix=f"{settings.API_V1_PREFIX}/auth", tags=["
 app.include_router(users.router, prefix=f"{settings.API_V1_PREFIX}/users", tags=["users"])
 app.include_router(jobs.router, prefix=f"{settings.API_V1_PREFIX}/jobs", tags=["jobs"])
 app.include_router(career.router)
+app.include_router(assessment.router)
 
 
 @app.get("/")

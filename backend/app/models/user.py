@@ -37,3 +37,7 @@ class User(Base):
 
     # Relationships
     saved_jobs = relationship("SavedJob", back_populates="user", cascade="all, delete-orphan")
+
+    # Assessment relationships
+    assessment_results = relationship("AssessmentResult", back_populates="user", cascade="all, delete-orphan")
+    progress = relationship("UserProgress", back_populates="user", uselist=False, cascade="all, delete-orphan")
